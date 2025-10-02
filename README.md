@@ -2,7 +2,7 @@
 
 _Spin the wheel and let fate decide!_  
 
-![Decision Wheel Screenshot](https://raw.githubusercontent.com/michaelsboost/DecisionWheel/main/imgs/screenshot.png)
+![Decision Wheel Screenshot](https://raw.githubusercontent.com/michaelsboost/DecisionWheel/main/imgs/screenshot.jpeg)
 
 [![MIT License](https://img.shields.io/github/license/michaelsboost/DecisionWheel)](LICENSE) [![GitHub Stars](https://img.shields.io/github/stars/michaelsboost/DecisionWheel)](https://github.com/michaelsboost/DecisionWheel/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/michaelsboost/DecisionWheel)](https://github.com/michaelsboost/DecisionWheel/issues)  
 

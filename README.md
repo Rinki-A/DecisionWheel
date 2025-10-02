@@ -14,6 +14,7 @@ _Spin the wheel and let fate decide!_
 
 With magical sound effects, smooth animations, and a confetti celebration at the end, Decision Wheel brings fun and charm to even the simplest choices.  
 
+_Forked from [Dilum Sanjaya's](https://codepen.io/dilums) - [Wheel Of Fortune](https://codepen.io/dilums/pen/azvYdbj)_  
 _Developed using [kodeWeave](https://github.com/michaelsboost/kodeWeave)._  
 
 ---

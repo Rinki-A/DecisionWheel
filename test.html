@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Decision Wheel - Fortune Teller's Choice</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, interactive-widget=resizes-content">
+    <meta name="description" content="Spin the enchanted wheel and let witch's wisdom guide your choices! This magical decision maker features mystical symbols, spellbinding animations, and fortune teller magic to help you decide your path.">
+    <meta name="author" content="Michael Schwartz">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Decision Wheel - Fortune Teller's Choice">
+    <meta name="theme-color" content="#161920">
+    <meta name="apple-mobile-web-app-title" content="Decision Wheel - Fortune Teller's Choice">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="./index.html">
+    <meta name="msapplication-navbutton-color" content="#161920">
+    <meta property="og:url" content="https://michaelsboost.com/DecisionWheel" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Decision Wheel - Fortune Teller's Choice" />
+    <meta property="og:description" content="Spin the enchanted wheel and let witch's wisdom guide your choices! This magical decision maker features mystical symbols, spellbinding animations, and fortune teller magic to help you decide your path." />
+    <link rel="shortcut icon" type="image/x-icon" href="imgs/logo.svg">
+    <link rel="icon" type="image/svg+xml" href="imgs/logo.svg" />
+    <link rel="apple-touch-icon" href="imgs/logo.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="src/bundle.css">
+  </head>
+  <body class="min-h-screen flex items-center justify-center p-4" x-data="decisionWheel()">
+    <div class="relative w-full max-w-4xl mx-auto">
+      <!-- Wheel Container -->
+      <div class="relative w-full aspect-square max-w-[740px] mx-auto">
+        <!-- Background decoration -->
+        <div class="absolute -right-4 -top-4 w-32 sm:w-48 md:w-64">
+          <img class="w-full h-auto" src="imgs/wheel-of-fortune-zjlspegv.png" alt="Fortune Teller">
+        </div>
+        
+        <!-- Spinning Wheel -->
+        <svg class="wheel-spin absolute inset-0" :style="`transform: rotate(${rotation}deg)`" viewBox="0 0 2000 2000" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1922 1005C1922 1514.21 1509.21 1927 1000 1927C490.793 1927 78 1514.21 78 1005C78 495.793 490.793 83 1000 83C1509.21 83 1922 495.793 1922 1005ZM471.592 1005C471.592 1296.83 708.168 1533.41 1000 1533.41C1291.83 1533.41 1528.41 1296.83 1528.41 1005C1528.41 713.168 1291.83 476.592 1000 476.592C708.168 476.592 471.592 713.168 471.592 1005Z" mask="url(#path-1-inside-1_9_42)" style="fill: rgba(39, 43, 53, 0.91); stroke: rgba(61, 68, 82, 0.57); stroke-width: 13px;"></path>
+            <g transform="translate(1000, 1000)">
+                <!-- 10 Segments with different colors -->
+                <path class="segment-1" d="M862.865,5.263A10,10,0,0,1,872.863,15.44A873,873,0,0,1,715.237,500.565A10,10,0,0,1,701.166,502.922L486.728,347.123A10,10,0,0,1,484.368,333.364A588,588,0,0,0,587.808,15.008A10,10,0,0,1,597.805,5.263Z" style="stroke: rgba(68, 76, 89, 0.76); stroke-width: 6;"></path>
+                <path class="segment-2" d="M694.979,511.437A10,10,0,0,1,697.086,525.547A873,873,0,0,1,284.414,825.371A10,10,0,0,1,271.645,819.007L189.737,566.92A10,10,0,0,1,195.916,554.401A588,588,0,0,0,466.726,357.646A10,10,0,0,1,480.541,355.639Z" style="stroke: rgba(68, 76, 89, 0.76); stroke-width: 6;"></path>
+                <path class="segment-3" d="M261.635,822.26A10,10,0,0,1,255.046,834.914A873,873,0,0,1,-255.046,834.914A10,10,0,0,1,-261.635,822.26L-179.727,570.173A10,10,0,0,1,-167.37,563.677A588,588,0,0,0,167.37,563.677A10,10,0,0,1,179.727,570.173Z" style="stroke: rgba(68, 76, 89, 0.76); stroke-width: 6;"></path>
+                <path class="segment-4" d="M-271.645,819.007A10,10,0,0,1,-284.414,825.371A873,873,0,0,1,-697.086,525.547A10,10,0,0,1,-694.979,511.437L-480.541,355.639A10,10,0,0,1,-466.726,357.646A588,588,0,0,0,-195.916,554.401A10,10,0,0,1,-189.737,566.92Z" style="stroke: rgba(68, 76, 89, 0.76); stroke-width: 6;"></path>
+                <path class="segment-5" d="M-701.166,502.922A10,10,0,0,1,-715.237,500.565A873,873,0,0,1,-872.863,15.44A10,10,0,0,1,-862.865,5.263L-597.805,5.263A10,10,0,0,1,-587.808,15.008A588,588,0,0,0,-484.368,333.364A10,10,0,0,1,-486.728,347.123Z" style="stroke: rgba(68, 76, 89, 0.76); stroke-width: 6;"></path>
+                <path class="segment-6" d="M-862.865,-5.263A10,10,0,0,1,-872.863,-15.44A873,873,0,0,1,-715.237,-500.565A10,10,0,0,1,-701.166,-502.922L-486.728,-347.123A10,10,0,0,1,-484.368,-333.364A588,588,0,0,0,-587.808,-15.008A10,10,0,0,1,-597.805,-5.263Z" style="stroke: rgba(68, 76, 89, 0.76); stroke-width: 6;"></path>
+                <path class="segment-7" d="M-694.979,-511.437A10,10,0,0,1,-697.086,-525.547A873,873,0,0,1,-284.414,-825.371A10,10,0,0,1,-271.645,-819.007L-189.737,-566.92A10,10,0,0,1,-195.916,-554.401A588,588,0,0,0,-466.726,-357.646A10,10,0,0,1,-480.541,-355.639Z" style="stroke: rgba(68, 76, 89, 0.76); stroke-width: 6;"></path>
+                <path class="segment-8" d="M-261.635,-822.26A10,10,0,0,1,-255.046,-834.914A873,873,0,0,1,255.046,-834.914A10,10,0,0,1,261.635,-822.26L179.727,-570.173A10,10,0,0,1,167.37,-563.677A588,588,0,0,0,-167.37,-563.677A10,10,0,0,1,-179.727,-570.173Z" style="stroke: rgba(68, 76, 89, 0.76); stroke-width: 6;"></path>
+                <path class="segment-9" d="M271.645,-819.007A10,10,0,0,1,284.414,-825.371A873,873,0,0,1,697.086,-525.547A10,10,0,0,1,694.979,-511.437L480.541,-355.639A10,10,0,0,1,466.726,-357.646A588,588,0,0,0,195.916,-554.401A10,10,0,0,1,189.737,-566.92Z" style="stroke: rgba(68, 76, 89, 0.76); stroke-width: 6;"></path>
+                <path class="segment-10" d="M701.166,-502.922A10,10,0,0,1,715.237,-500.565A873,873,0,0,1,872.863,-15.44A10,10,0,0,1,862.865,-5.263L597.805,-5.263A10,10,0,0,1,587.808,-15.008A588,588,0,0,0,484.368,-333.364A10,10,0,0,1,486.728,-347.123Z" style="stroke: rgba(68, 76, 89, 0.76); stroke-width: 6;"></path>
+                
+                <!-- Text labels for 10 segments -->
+                <path d="M690,0A690,690,0,0,1,558.2217261187137,405.5718240818065" stroke="none" stroke-width="5" id="title_path_0"></path>
+                <text dy="20" class="circ-title">
+                    <textPath xlink:href="#title_path_0" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">Absolutely Yes</textPath>
+                </text>
+                
+                <path d="M558.2217261187137,405.5718240818065A690,690,0,0,1,213.22172611871375,656.228996243656" stroke="none" stroke-width="5" id="title_path_1"></path>
+                <text dy="20" class="circ-title">
+                    <textPath xlink:href="#title_path_1" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">Definitely Not</textPath>
+                </text>
+                
+                <path d="M213.22172611871375,656.228996243656A690,690,0,0,1,-213.22172611871366,656.228996243656" stroke="none" stroke-width="5" id="title_path_2"></path>
+                <text dy="20" class="circ-title">
+                    <textPath xlink:href="#title_path_2" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">Probably Yes</textPath>
+                </text>
+                
+                <path d="M-213.22172611871366,656.228996243656A690,690,0,0,1,-558.2217261187137,405.57182408180654" stroke="none" stroke-width="5" id="title_path_3"></path>
+                <text dy="20" class="circ-title">
+                    <textPath xlink:href="#title_path_3" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">Most Likely No</textPath>
+                </text>
+                
+                <path d="M-558.2217261187137,405.57182408180654A690,690,0,0,1,-690,8.450062914116737e-14" stroke="none" stroke-width="5" id="title_path_4"></path>
+                <text dy="20" class="circ-title">
+                    <textPath xlink:href="#title_path_4" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">Without a Doubt</textPath>
+                </text>
+                
+                <path d="M-690,8.450062914116737e-14A690,690,0,0,1,-558.2217261187137,-405.57182408180637" stroke="none" stroke-width="5" id="title_path_5"></path>
+                <text dy="20" class="circ-title">
+                    <textPath xlink:href="#title_path_5" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">Not a Chance</textPath>
+                </text>
+                
+                <path d="M-558.2217261187137,-405.57182408180637A690,690,0,0,1,-213.22172611871383,-656.228996243656" stroke="none" stroke-width="5" id="title_path_6"></path>
+                <text dy="20" class="circ-title">
+                    <textPath xlink:href="#title_path_6" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">Yes, Definitely</textPath>
+                </text>
+                
+                <path d="M-213.22172611871383,-656.228996243656A690,690,0,0,1,213.22172611871358,-656.228996243656" stroke="none" stroke-width="5" id="title_path_7"></path>
+                <text dy="20" class="circ-title">
+                    <textPath xlink:href="#title_path_7" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">No Way</textPath>
+                </text>
+                
+                <path d="M213.22172611871358,-656.228996243656A690,690,0,0,1,558.2217261187137,-405.5718240818066" stroke="none" stroke-width="5" id="title_path_8"></path>
+                <text dy="20" class="circ-title">
+                    <textPath xlink:href="#title_path_8" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">It's Possible</textPath>
+                </text>
+                
+                <path d="M558.2217261187137,-405.5718240818066A690,690,0,0,1,690,-1.6900125828233473e-13" stroke="none" stroke-width="5" id="title_path_9"></path>
+                <text dy="20" class="circ-title">
+                    <textPath xlink:href="#title_path_9" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">Better Not</textPath>
+                </text>
+  <path d="M650,0A650,650,0,0,1,525.8610463437159,382.0604139901075" stroke="none" stroke-width="5" id="droprate_path_0"></path><text dy="16" class="circl-desc">
+  <textPath xlink:href="#droprate_path_0" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">24% drop rate</textPath>
+  </text>
+  <path d="M525.8610463437159,382.0604139901075A650,650,0,0,1,200.86104634371586,618.1867355918498" stroke="none" stroke-width="5" id="droprate_path_1"></path><text dy="16" class="circl-desc">
+  <textPath xlink:href="#droprate_path_1" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">15% drop rate</textPath>
+  </text>
+  <path d="M200.86104634371586,618.1867355918498A650,650,0,0,1,-200.86104634371577,618.1867355918498" stroke="none" stroke-width="5" id="droprate_path_2"></path><text dy="16" class="circl-desc">
+  <textPath xlink:href="#droprate_path_2" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">5% drop rate</textPath>
+  </text>
+  <path d="M-200.86104634371577,618.1867355918498A650,650,0,0,1,-525.8610463437158,382.06041399010763" stroke="none" stroke-width="5" id="droprate_path_3"></path><text dy="16" class="circl-desc">
+  <textPath xlink:href="#droprate_path_3" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">50% drop rate</textPath>
+  </text>
+  <path d="M-525.8610463437158,382.06041399010763A650,650,0,0,1,-650,7.960204194457796e-14" stroke="none" stroke-width="5" id="droprate_path_4"></path><text dy="16" class="circl-desc">
+  <textPath xlink:href="#droprate_path_4" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">1% drop rate</textPath>
+  </text>
+  <path d="M-650,7.960204194457796e-14A650,650,0,0,1,-525.8610463437159,-382.06041399010746" stroke="none" stroke-width="5" id="droprate_path_5"></path><text dy="16" class="circl-desc">
+  <textPath xlink:href="#droprate_path_5" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">80% drop rate</textPath>
+  </text>
+  <path d="M-525.8610463437159,-382.06041399010746A650,650,0,0,1,-200.8610463437159,-618.1867355918498" stroke="none" stroke-width="5" id="droprate_path_6"></path><text dy="16" class="circl-desc">
+  <textPath xlink:href="#droprate_path_6" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">24% drop rate</textPath>
+  </text>
+  <path d="M-200.8610463437159,-618.1867355918498A650,650,0,0,1,200.86104634371569,-618.1867355918498" stroke="none" stroke-width="5" id="droprate_path_7"></path><text dy="16" class="circl-desc">
+  <textPath xlink:href="#droprate_path_7" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">15% drop rate</textPath>
+  </text>
+  <path d="M200.86104634371569,-618.1867355918498A650,650,0,0,1,525.8610463437158,-382.0604139901077" stroke="none" stroke-width="5" id="droprate_path_8"></path><text dy="16" class="circl-desc">
+  <textPath xlink:href="#droprate_path_8" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">5% drop rate</textPath>
+  </text>
+  <path d="M525.8610463437158,-382.0604139901077A650,650,0,0,1,650,-1.5920408388915592e-13" stroke="none" stroke-width="5" id="droprate_path_9"></path><text dy="16" class="circl-desc">
+  <textPath xlink:href="#droprate_path_9" text-anchor="middle" startOffset="50%" style="text-anchor: middle;">50% drop rate</textPath>
+  </text>
+  <g transform="translate(651.8240827102197,151.03325561245896 )">
+  <g transform="rotate(108, 90, 90)">
+  <image href="https://assets.codepen.io/3685267/wheel-of-fortune-lmvdrrhl.png" height="180" width="180" class="scale-on-hover"></image>
+  </g>
+  </g>
+  <g transform="translate(368.47249678812904,541.033255612459 )">
+  <g transform="rotate(144, 90, 90)">
+  <image href="https://assets.codepen.io/3685267/wheel-of-fortune-lboxprxz.png" height="180" width="180" class="scale-on-hover"></image>
+  </g>
+  </g>
+  <g transform="translate(-89.99999999999996,690 )">
+  <g transform="rotate(180, 90, 90)">
+  <image href="https://assets.codepen.io/3685267/wheel-of-fortune-gydimcwp.png" height="180" width="180" class="scale-on-hover"></image>
+  </g>
+  </g>
+  <g transform="translate(-548.472496788129,541.033255612459 )">
+  <g transform="rotate(216, 90, 90)">
+  <image href="https://assets.codepen.io/3685267/wheel-of-fortune-csqvlgov.png" height="180" width="180" class="scale-on-hover"></image>
+  </g>
+  </g>
+  <g transform="translate(-831.8240827102197,151.03325561245904 )">
+  <g transform="rotate(252, 90, 90)">
+  <image href="https://assets.codepen.io/3685267/wheel-of-fortune-nxffhdul.png" height="180" width="180" class="scale-on-hover"></image>
+  </g>
+  </g>
+  <g transform="translate(-831.8240827102198,-331.0332556124589 )">
+  <g transform="rotate(288, 90, 90)">
+  <image href="https://assets.codepen.io/3685267/wheel-of-fortune-xiquzhpo.png" height="180" width="180" class="scale-on-hover"></image>
+  </g>
+  </g>
+  <g transform="translate(-548.4724967881291,-721.0332556124589 )">
+  <g transform="rotate(324, 90, 90)">
+  <image href="https://assets.codepen.io/3685267/wheel-of-fortune-lmvdrrhl.png" height="180" width="180" class="scale-on-hover"></image>
+  </g>
+  </g>
+  <g transform="translate(-90.00000000000014,-870 )">
+  <g transform="rotate(360, 90, 90)">
+  <image href="https://assets.codepen.io/3685267/wheel-of-fortune-lboxprxz.png" height="180" width="180" class="scale-on-hover"></image>
+  </g>
+  </g>
+  <g transform="translate(368.47249678812886,-721.0332556124591 )">
+  <g transform="rotate(396, 90, 90)">
+  <image href="https://assets.codepen.io/3685267/wheel-of-fortune-gydimcwp.png" height="180" width="180" class="scale-on-hover"></image>
+  </g>
+  </g>
+  <g transform="translate(651.8240827102197,-331.03325561245913 )">
+  <g transform="rotate(432, 90, 90)">
+  <image href="https://assets.codepen.io/3685267/wheel-of-fortune-csqvlgov.png" height="180" width="180" class="scale-on-hover"></image>
+  </g>
+  </g>
+            </g>
+        </svg>
+
+        <!-- Static Arrow (doesn't rotate) -->
+        <svg class="absolute inset-0" viewBox="0 0 2000 2000" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_28_19)">
+                <path d="M729.884 144.395C907.122 88.7643 1097.26 89.2052 1274.29 145.717L1274.76 145.872C1284.34 149.202 1289.59 159.486 1286.73 169.18L1286.59 169.648L1199.04 440.732C1195.86 450.593 1185.44 455.981 1175.66 453.146L1175.2 453.005C1062.09 417.106 940.707 416.827 827.473 452.165L824.799 453.007C815.044 456.103 804.522 450.918 801.109 441.2L800.952 440.734L713.403 169.651C710.179 159.666 715.663 148.924 725.7 145.72L729.884 144.395ZM1252.1 172.325C1087.72 122.557 912.272 122.559 747.895 172.328L827.473 418.729C876.16 404.401 926.189 396.267 976.399 394.327C976.597 393.926 976.852 393.537 977.176 393.174L996.768 371.189C998.756 368.958 1002.24 368.958 1004.23 371.189L1023.82 393.174C1024.16 393.549 1024.42 393.951 1024.62 394.366C1074.49 396.376 1124.16 404.497 1172.52 418.728L1252.1 172.325Z" fill="url(#paint0_linear_28_19)"></path>
+            </g>
+            <defs>
+                <filter id="filter0_d_28_19" x="708.079" y="98.6" width="593.833" height="369.701" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+                    <feOffset dx="5" dy="5"></feOffset>
+                    <feGaussianBlur stdDeviation="4.7"></feGaussianBlur>
+                    <feComposite in2="hardAlpha" operator="out"></feComposite>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_28_19"></feBlend>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_28_19" result="shape"></feBlend>
+                </filter>
+                <linearGradient id="paint0_linear_28_19" x1="999.996" y1="103" x2="999.996" y2="453.901" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#8D919C"></stop>
+                    <stop offset="1" stop-color="#4F5563"></stop>
+                </linearGradient>
+            </defs>
+        </svg>
+      </div>
+
+      <!-- Decide button - Made responsive -->
+      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform w-48 sm:w-56 md:w-64">
+        <div class="flex items-center flex-col px-4 sm:px-5 py-3 space-y-1 bg-[#272b35c2] text-[#ffffff] border-[2px] border-[#3d44528c] origin-center scale-[.65] sm:scale-[1]" style="border-radius: 23px;">
+          <div class="text-sm sm:text-base font-semibold text-white">Decision Wheel</div>
+          <div class="text-xs sm:text-sm text-center">Let the universe guide your choice</div>
+          <div class="bg-[#7d8cff] pt-0.5 w-full" style="border-radius: 8px;">
+            <button class="text-sm sm:text-base font-semibold buy-button w-full py-1 text-white" @click="spinWheel()" :disabled="spinning">
+              <span x-text="spinning ? 'Spinning...' : 'Spin'"></span>
+            </button>
+          </div>
+          <div class="mt-2 text-center" x-show="result">
+            <p class="text-xs sm:text-sm">The universe says:</p>
+            <p class="text-base sm:text-lg font-bold mt-1" :class="{'glow': showGlow, 'shake': showShake}" x-text="result"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="dist/script.js" ></script>
+  </body>
+</html>

